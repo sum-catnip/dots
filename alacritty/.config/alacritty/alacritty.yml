@@ -1,1 +1,33 @@
-/home/catnip/.config/alacritty/alacritty.yml
+window:
+  padding:
+    x: 5
+    y: 5
+
+font:
+  normal:
+    family: 'Hermit'
+  size: 10
+
+colors:
+  primary:
+    fireground: '#c8c5c4'
+    background: '#02010a'
+
+  normal:
+    black:  '#02010a'
+    red:  '#b2826a'
+    green:  '#85ae6e'
+    yellow:  '#4a45aa'
+    blue:  '#2b04aa'
+    magenta:  '#390daa'
+    cyan:  '#9f89aa'
+    white:  '#c8c5c4'
+  bright:
+    black:  '#5a524f'
+    red:  '#b2826a'
+    green: '#85ae6e'
+    yellow: '#4a45aa'
+    blue: '#2b04aa'
+    magenta: '#390daa'
+    cyan: '#9f89aa'
+    white: '#c8c5c4'
