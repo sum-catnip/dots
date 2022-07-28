@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+function spawn_once
+  killall $argv[1] 2> /dev/null
+  riverctl spawn "$argv"
+end
+
+spawn_once kanshi
+spawn_once rivertile -view-padding 6 -outer-padding 6
+spawn_once albert
+spawn_once waybar

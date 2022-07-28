@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+set mode $argv[1]
+
+switch $mode
+  case insert
+    riverctl enter-mode insert
+    riverctl border-color-focused 0x390daa
+  case normal
+    riverctl enter-mode normal
+    riverctl border-color-focused 0x9f89aa
+end

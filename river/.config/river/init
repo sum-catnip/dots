@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+set -l current_dir (realpath (dirname (status -f)))
+
+$current_dir/modes
+$current_dir/keys
+$current_dir/autorun
+$current_dir/theme
+
+# rules
+riverctl float-filter-add app-id float
+
+riverctl default-layout rivertile

@@ -1,0 +1,92 @@
+#!/usr/bin/env fish
+
+set -l current_dir (realpath (dirname (status -f)))
+
+# super to enter normal mode
+#riverctl map insert None Super_L enter-mode normal
+riverctl map insert None Super_L spawn "$current_dir/change_mode normal"
+
+# i to enter insert mode
+#riverctl map normal None i enter-mode insert
+riverctl map normal None i spawn "$current_dir/change_mode insert"
+
+# >> normal bindings
+
+riverctl map normal None t spawn alacritty
+riverctl map normal None Space spawn "$current_dir/change_mode insert; kickoff"
+riverctl map normal None q close
+
+riverctl map normal None Return zoom
+
+# focus
+riverctl map normal None j focus-view next
+riverctl map normal None k focus-view previous
+
+riverctl map normal None l focus-output next
+riverctl map normal None h focus-output previous
+
+# move
+riverctl map normal Shift j swap next
+riverctl map normal Shift k swap previous
+
+riverctl map normal Shift l send-to-output next
+riverctl map normal Shift h send-to-output previous
+
+# layout
+
+# Comma and Period to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Shift Comma send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Shift Period send-layout-cmd rivertile "main-ratio +0.05"
+
+# Shift+Comma and Shift+Period to increment/decrement the main count of rivertile(1)
+riverctl map normal None Period send-layout-cmd rivertile "main-count +1"
+riverctl map normal None Comma send-layout-cmd rivertile "main-count -1"
+
+# toggle floating
+riverctl map normal None f toggle-float
+# toggle fullscreen
+riverctl map normal Shift f toggle-fullscreen
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal None BTN_LEFT move-view
+
+# Super + Right Mouse Button to resize views
+riverctl map-pointer normal None BTN_RIGHT resize-view
+
+# change layout orientation
+riverctl map normal Alt k send-layout-cmd rivertile "main-location top"
+riverctl map normal Alt l send-layout-cmd rivertile "main-location right"
+riverctl map normal Alt j send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Alt h send-layout-cmd rivertile "main-location left"
+
+# media keys
+riverctl map normal None XF86AudioRaiseVolume  spawn 'pamixer -i 10'
+riverctl map normal None XF86AudioLowerVolume  spawn 'pamixer -d 10'
+riverctl map normal None XF86AudioMute         spawn 'pamixer --toggle-mute'
+
+# Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
+riverctl map normal None Down spawn 'playerctl play-pause'
+riverctl map normal None Left spawn 'playerctl previous'
+riverctl map normal None Right spawn 'playerctl next'
+
+for i in (seq 1 9)
+  set tags (bash -c "echo \$((1 << ($i - 1)))")
+
+  # Super+[1-9] to focus tag [0-8]
+  riverctl map normal None $i set-focused-tags $tags
+
+  # Super+Shift+[1-9] to tag focused view with tag [0-8]
+  riverctl map normal Shift $i set-view-tags $tags
+
+  # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
+  riverctl map normal Control $i toggle-focused-tags $tags
+
+  # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+  riverctl map normal Shift+Control $i toggle-view-tags $tags
+end
+
+# Super+0 to focus all tags
+# Super+Shift+0 to tag focused view with all tags
+set all_tags (bash -c 'echo $(((1 << 32) - 1))')
+riverctl map normal None 0 set-focused-tags $all_tags
+riverctl map normal Shift 0 set-view-tags $all_tags

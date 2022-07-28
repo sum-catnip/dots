@@ -1,0 +1,11 @@
+{
+  "id": "main",
+  "output": "HDMI-A-1",
+	"layer": "top",
+	"modules-left": ["river/tags", "clock", "disk", "cpu", "memory"],
+	"river/tags": { "num-tags": 9 },
+  "clock": { "format": "{:⏳ %H:%M  📅 %d %m}" },
+  "disk": { "format": "💾 / {percentage_used}%" },
+  "cpu": { "format": "🧮 {usage}%" },
+  "memory": { "format": "🗄 {percentage}%" }
+}

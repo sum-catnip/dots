@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+riverctl declare-mode insert
