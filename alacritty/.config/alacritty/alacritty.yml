@@ -10,7 +10,7 @@ font:
 
 colors:
   primary:
-    fireground: '#c8c5c4'
+    foreground: '#c8c5c4'
     background: '#02010a'
 
   normal:
