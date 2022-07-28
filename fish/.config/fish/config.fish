@@ -5,6 +5,7 @@ alias ls exa
 fish_vi_key_bindings
 
 set -px PATH /usr/local/bin /usr/sbin $HOME/.cargo/bin $HOME/bin $HOME/.local/bin
+set -x MOZ_ENABLE_WAYLAND 1
 set -x FZF_LEGACY_KEYBINDINGS 0
 set -x VISUAL nvim
 set -x WLR_NO_HARDWARE_CURSORS 1
@@ -12,8 +13,6 @@ set -x DO_NOT_TRACK 1
 
 set -x GOPATH ~/go
 set -x RUST_BACKTRACE 1
-
-source /home/catnip/.ghcup/env
 
 function r
   touch $HOME/.rangerdir
