@@ -1,15 +1,15 @@
 #!/bin/bash
 
-#mkdir -p ~/repos
-#sudo pacman -Syu --noconfirm
-#sudo pacman -S --noconfirm --needed git base-devel reflector stow neovim fish
+mkdir -p ~/repos
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm --needed git base-devel reflector stow neovim fish otf-hermit
 
 # installing yay
-#git clone https://aur.archlinux.org/yay.git ~/repos/yay
-#pushd ~/repos/yay
-#cd ~/repos/yay
-#makepkg --noconfirm -si
-#popd
+git clone https://aur.archlinux.org/yay.git ~/repos/yay
+pushd ~/repos/yay
+cd ~/repos/yay
+makepkg --noconfirm -si
+popd
 
 sudo -s <<EOF
 # enable pacman colored output
@@ -23,7 +23,8 @@ systemctl enable reflector
 EOF
 
 # install window manager
+yay -S --noconfirm polkit
 yay -aS river --noconfirm
 
-# install visual software
+# install gui software
 sudo pacman -S --noconfirm fish firefox alacritty neovide
