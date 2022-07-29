@@ -27,9 +27,25 @@ window#waybar {
   background-color: #390daa;
 }
 
+#mode {
+	background: #02010a;
+  padding: 0px 10px 0px 10px;
+  margin-left: 25px;
+  border-radius: 0px 0px 3px 3px;
+}
+
+#mode.insert {
+  background-color: #390daa;
+}
+
+#mode.normal {
+  background-color: #9f89aa;
+  color: black;
+}
+
 #clock {
 	background: #02010a;
-  margin-left: 50px;
+  margin-left: 75px;
   padding: 0px 10px 0px 10px;
 }
 

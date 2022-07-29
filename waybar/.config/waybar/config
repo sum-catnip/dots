@@ -1,9 +1,10 @@
 [{
   "id": "main",
   "output": "HDMI-A-1",
-	"layer": "top",
-	"modules-left": ["river/tags", "clock", "disk", "cpu", "memory"],
+	"layer": "bottom",
+	"modules-left": ["river/tags", "river/mode", "clock", "disk", "cpu", "memory"],
 	"river/tags": { "num-tags": 9 },
+  "river/mode": { "format": "{}" },
   "clock": { "format": "{:⏳ %H:%M  📅 %d %m}" },
   "disk": { "format": "💾 / {percentage_used}%" },
   "cpu": { "format": "🧮 {usage}%" },
@@ -11,15 +12,9 @@
 },
 {
   "id": "minimal1",
-  "output": "DP-1",
-	"layer": "top",
-	"modules-left": ["river/tags"],
+  "output": "!HDMI-A-1",
+	"layer": "bottom",
+	"modules-left": ["river/tags", "river/mode"],
 	"river/tags": { "num-tags": 9 },
-},
-{
-  "id": "minimal2",
-  "output": "DP-2",
-	"layer": "top",
-	"modules-left": ["river/tags"],
-	"river/tags": { "num-tags": 9 },
+  "river/mode": { "format": "{}" },
 }]
