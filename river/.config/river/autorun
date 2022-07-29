@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+set -l current_dir (realpath (dirname (status -f)))
+
 function spawn_once
   killall $argv[1] 2> /dev/null
   riverctl spawn "$argv"
@@ -9,3 +11,4 @@ spawn_once kanshi
 spawn_once rivertile -view-padding 6 -outer-padding 6
 spawn_once albert
 spawn_once waybar
+spawn_once "swaybg -m fill -i $current_dir/bg.jpg"

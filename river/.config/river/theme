@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
 # Set background and border color
-riverctl border-width 2
+riverctl border-width 3
 riverctl background-color 0x002b36
 riverctl border-color-urgent 0xb2826a
 riverctl border-color-focused 0x390daa
-riverctl border-color-unfocused 0x585554
+riverctl border-color-unfocused 0x586e75

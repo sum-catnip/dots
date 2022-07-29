@@ -12,6 +12,9 @@ riverctl map normal None i spawn "$current_dir/change_mode insert"
 
 # >> normal bindings
 
+# screenshot
+riverctl map normal None s spawn 'grim -g "$(slurp)" - | wl-copy'
+
 riverctl map normal None t spawn alacritty
 riverctl map normal None Space spawn "$current_dir/change_mode insert; kickoff"
 riverctl map normal None q close
@@ -90,3 +93,4 @@ end
 set all_tags (bash -c 'echo $(((1 << 32) - 1))')
 riverctl map normal None 0 set-focused-tags $all_tags
 riverctl map normal Shift 0 set-view-tags $all_tags
+
