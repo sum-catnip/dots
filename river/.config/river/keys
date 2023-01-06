@@ -25,6 +25,11 @@ riverctl map normal None Return zoom
 riverctl map normal None j focus-view next
 riverctl map normal None k focus-view previous
 
+riverctl map normal Alt 1 focus-output DP-2
+riverctl map normal Alt 2 focus-output DP-1
+riverctl map normal Alt 3 focus-output DP-3
+riverctl map normal Alt 4 focus-output HDMI-A-1
+
 riverctl map normal None l focus-output next
 riverctl map normal None h focus-output previous
 
@@ -34,6 +39,11 @@ riverctl map normal Shift k swap previous
 
 riverctl map normal Shift l send-to-output next
 riverctl map normal Shift h send-to-output previous
+
+riverctl map normal Alt+Shift 1 send-to-output DP-2
+riverctl map normal Alt+Shift 2 send-to-output DP-1
+riverctl map normal Alt+Shift 3 send-to-output DP-3
+riverctl map normal Alt+Shift 4 send-to-output HDMI-A-1
 
 # layout
 

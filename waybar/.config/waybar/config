@@ -1,6 +1,6 @@
 [{
   "id": "main",
-  "output": "HDMI-A-1",
+  "output": "DP-2",
 	"layer": "bottom",
 	"modules-left": ["river/tags", "river/mode", "clock", "disk", "cpu", "memory"],
 	"river/tags": { "num-tags": 9 },
@@ -12,7 +12,7 @@
 },
 {
   "id": "minimal1",
-  "output": "!HDMI-A-1",
+  "output": "!DP-2",
 	"layer": "bottom",
 	"modules-left": ["river/tags", "river/mode"],
 	"river/tags": { "num-tags": 9 },
